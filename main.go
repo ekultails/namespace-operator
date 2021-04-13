@@ -26,6 +26,8 @@ var (
 	setupLog = ctrl.Log.WithName("setup")
 )
 
+//nolint // The kuebuilder scaffold is required but results in this lint error:
+// main.go:35:1: block should not end with a whitespace (or comment) (wsl)
 func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
 

@@ -29,7 +29,6 @@ metadata:
 
 // CreateNamespace creates Namespace resource for the parent TanzuNamespace object.
 func CreateNamespace(parent *tenancyv1alpha1.TanzuNamespace) (metav1.Object, error) {
-
 	fmap := template.FuncMap{
 		"defaultNamespace": defaultNamespace,
 	}

@@ -35,7 +35,6 @@ type genericResource interface{}
 // runTemplate renders a template for a child object to the custom resource.
 func runTemplate(templateName, templateValue string, data genericResource,
 	funcMap template.FuncMap) (string, error) {
-
 	t, err := template.New(templateName).Funcs(funcMap).Parse(templateValue)
 	if err != nil {
 		return "", fmt.Errorf("error parsing template %s: %v", templateName, err)

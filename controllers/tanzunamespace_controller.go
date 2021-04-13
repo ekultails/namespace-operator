@@ -54,7 +54,6 @@ func (r *TanzuNamespaceReconciler) Reconcile(req ctrl.Request) (ctrl.Result, err
 	if customResource.Status.Created == false {
 
 		for _, f := range resources.CreateFuncs {
-
 			rsrc, err := f(&customResource)
 
 			if err != nil {
@@ -76,14 +75,12 @@ func (r *TanzuNamespaceReconciler) Reconcile(req ctrl.Request) (ctrl.Result, err
 		}
 
 		for _, f := range resources.CreateArrayFuncs {
-
 			rsrcs, err := f(&customResource)
 			if err != nil {
 				return ctrl.Result{}, err
 			}
 
 			for _, rsrc := range rsrcs {
-
 				_, err = ctrl.CreateOrUpdate(ctx, r.Client, rsrc.(runtime.Object), func() error {
 					object := rsrc.(metav1.Object)
 					if err := ctrl.SetControllerReference(&customResource, object, r.Scheme); err != nil {
@@ -120,11 +117,9 @@ func (r *TanzuNamespaceReconciler) Reconcile(req ctrl.Request) (ctrl.Result, err
 		}
 
 		log.V(0).Info("new resources created")
-
 	} else {
 		log.V(0).Info("resources exist - no update logic implemented")
 	}
-
 	return ctrl.Result{}, nil
 }
 

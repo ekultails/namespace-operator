@@ -59,7 +59,6 @@ func NewGenerateCommand() *cobra.Command {
 }
 
 func runGenerate(in io.Reader, out io.Writer) error {
-
 	var cr v1alpha1.TanzuNamespace
 	if err := Decode(in, &cr); err != nil {
 		return fmt.Errorf("decoding: %w", err)
@@ -80,10 +79,8 @@ func runGenerate(in io.Reader, out io.Writer) error {
 }
 
 func generateChildren(cr *v1alpha1.TanzuNamespace) ([]metav1.Object, error) {
-
 	var children []metav1.Object
 	for _, f := range resources.CreateFuncs {
-
 		rsrc, err := f(cr)
 		if err != nil {
 			return nil, err
