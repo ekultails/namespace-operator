@@ -134,7 +134,7 @@ spec:
 {{ end }}
 `
 
-// CreateNetworkPolicies creates the tanzu-network-policy-n resource
+// CreateNetworkPolicies creates the tanzu-network-policy-n resource.
 func CreateNetworkPolicies(parent *tenancyv1alpha1.TanzuNamespace) ([]metav1.Object, error) {
 	var resourceObjs []metav1.Object
 

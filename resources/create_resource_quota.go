@@ -34,7 +34,7 @@ spec:
     limits.memory: {{ $resourceQuotaMemoryLimits }}
 `
 
-// CreateResourceQuota creates the ResourceQuota resource for the parent TanzuNamespace object
+// CreateResourceQuota creates the ResourceQuota resource for the parent TanzuNamespace object.
 func CreateResourceQuota(parent *tenancyv1alpha1.TanzuNamespace) (metav1.Object, error) {
 
 	fmap := template.FuncMap{

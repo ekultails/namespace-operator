@@ -22,7 +22,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// TanzuNamespaceReconciler reconciles a TanzuNamespace object
+// TanzuNamespaceReconciler reconciles a TanzuNamespace object.
 type TanzuNamespaceReconciler struct {
 	client.Client
 	Log    logr.Logger

@@ -16,12 +16,12 @@ import (
 	tenancyv1alpha1 "github.com/vmware-tanzu-labs/namespace-operator/api/v1alpha1"
 )
 
-// CreateArrayFuncs is a variable containing functions which return an array of resources
+// CreateArrayFuncs is a variable containing functions which return an array of resources.
 var CreateArrayFuncs = []func(*tenancyv1alpha1.TanzuNamespace) ([]metav1.Object, error){
 	CreateNetworkPolicies,
 }
 
-// CreateFuncs is a variable containing functions which return a single resource
+// CreateFuncs is a variable containing functions which return a single resource.
 var CreateFuncs = []func(*tenancyv1alpha1.TanzuNamespace) (metav1.Object, error){
 	CreateNamespace,
 	CreateLimitRange,
@@ -29,10 +29,10 @@ var CreateFuncs = []func(*tenancyv1alpha1.TanzuNamespace) (metav1.Object, error)
 }
 
 // genericResource is a generic type to allow multiple different objects to be templated
-// in the same manner
+// in the same manner.
 type genericResource interface{}
 
-// runTemplate renders a template for a child object to the custom resource
+// runTemplate renders a template for a child object to the custom resource.
 func runTemplate(templateName, templateValue string, data genericResource,
 	funcMap template.FuncMap) (string, error) {
 

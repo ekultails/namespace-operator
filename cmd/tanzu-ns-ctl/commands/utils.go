@@ -29,7 +29,7 @@ func openInput(path string) (io.ReadCloser, error) {
 	return f, nil
 }
 
-// openOutput writes to the file at the given path or to stdout
+// openOutput writes to the file at the given path or to stdout.
 func openOutput(path string) (io.WriteCloser, error) {
 	if path == "-" {
 		return os.Stdout, nil

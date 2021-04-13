@@ -60,7 +60,7 @@ type rbacObject struct {
 	ObjectType string
 }
 
-// CreateRBAC creates the appropriate RBAC policies
+// CreateRBAC creates the appropriate RBAC policies.
 func CreateRBAC(parent *tenancyv1alpha1.TanzuNamespace) ([]metav1.Object, error) {
 	var resourceObjs []metav1.Object
 

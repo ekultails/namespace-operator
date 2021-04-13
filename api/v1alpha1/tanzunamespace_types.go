@@ -12,7 +12,7 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// TanzuNamespaceSpec defines the desired state of TanzuNamespace
+// TanzuNamespaceSpec defines the desired state of TanzuNamespace.
 type TanzuNamespaceSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
@@ -100,7 +100,7 @@ type TanzuNamespaceSpec struct {
 }
 
 // LimitRange defines an individual limit range which belongs to a
-// TanzuNamespace parent object
+// TanzuNamespace parent object.
 type LimitRange struct {
 	DefaultCPULimit      string `json:"defaultCPULimit"`
 	DefaultMemoryLimit   string `json:"defaultMemoryLimit"`
@@ -111,7 +111,7 @@ type LimitRange struct {
 }
 
 // ResourceQuota defines an individual resource quota which belongs to a
-// TanzuNamespace parent object
+// TanzuNamespace parent object.
 type ResourceQuota struct {
 	RequestsCPU    string `json:"requestsCPU"`
 	RequestsMemory string `json:"requestsMemory"`
@@ -120,7 +120,7 @@ type ResourceQuota struct {
 }
 
 // NetworkPolicy defines an individual network policy which belongs to
-// an array of NetworkPolicies
+// an array of NetworkPolicies.
 type NetworkPolicy struct {
 	TargetPodLabels        map[string]string `json:"targetPodLabels"`
 	IngressNamespaceLabels map[string]string `json:"ingressNamespaceLabels"`
@@ -133,13 +133,13 @@ type NetworkPolicy struct {
 	EgressUDPPorts         []int             `json:"egressUDPPorts"`
 }
 
-// NetworkPort defines an individual network port
+// NetworkPort defines an individual network port.
 type NetworkPort struct {
 	Protocol string `json:"protocol"`
 	Port     int    `json:"port"`
 }
 
-// RBAC defines default RBAC settings
+// RBAC defines default RBAC settings.
 type RBAC struct {
 	Create      bool   `json:"create"`
 	Type        string `json:"type"`
@@ -150,7 +150,7 @@ type RBAC struct {
 	Namespace   string `json:"namespace"`
 }
 
-// TanzuNamespaceStatus defines the observed state of TanzuNamespace
+// TanzuNamespaceStatus defines the observed state of TanzuNamespace.
 type TanzuNamespaceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
@@ -159,7 +159,7 @@ type TanzuNamespaceStatus struct {
 	Conditions []Condition `json:"conditions,omitempty"`
 }
 
-// Condition sets the status.conditions field on the object
+// Condition sets the status.conditions field on the object.
 type Condition struct {
 	Type    string `json:"type"`
 	Status  string `json:"status"`
@@ -171,7 +171,7 @@ type Condition struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster
 
-// TanzuNamespace is the Schema for the tanzunamespaces API
+// TanzuNamespace is the Schema for the tanzunamespaces API.
 type TanzuNamespace struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -181,7 +181,7 @@ type TanzuNamespace struct {
 
 // +kubebuilder:object:root=true
 
-// TanzuNamespaceList contains a list of TanzuNamespace
+// TanzuNamespaceList contains a list of TanzuNamespace.
 type TanzuNamespaceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
