@@ -92,11 +92,13 @@ func CreateRBAC(parent *tenancyv1alpha1.TanzuNamespace) ([]metav1.Object, error)
 
 			decode := scheme.Codecs.UniversalDeserializer().Decode
 			obj, _, err := decode([]byte(childContent), nil, nil)
+
 			if err != nil {
 				return nil, err
 			}
 
 			var resourceObj metav1.Object
+
 			if rbacItem.ObjectType == "ServiceAccount" {
 				resourceObj = obj.(*core_k8s_api.ServiceAccount)
 			} else if rbacItem.ObjectType == "Role" {
@@ -104,6 +106,7 @@ func CreateRBAC(parent *tenancyv1alpha1.TanzuNamespace) ([]metav1.Object, error)
 			} else if rbacItem.ObjectType == "RoleBinding" {
 				resourceObj = obj.(*rbac_k8s_api.RoleBinding)
 			}
+
 			resourceObjs = append(resourceObjs, resourceObj)
 		}
 	}

@@ -154,6 +154,7 @@ func CreateNetworkPolicies(parent *tenancyv1alpha1.TanzuNamespace) ([]metav1.Obj
 
 		decode := scheme.Codecs.UniversalDeserializer().Decode
 		obj, _, err := decode([]byte(childContent), nil, nil)
+
 		if err != nil {
 			return nil, err
 		}

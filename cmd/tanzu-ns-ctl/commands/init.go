@@ -73,8 +73,10 @@ func NewInitCommand() *cobra.Command {
 }
 
 func runInit(w io.Writer) error {
+
 	if _, err := w.Write([]byte(defaultManifest)); err != nil {
 		return err
 	}
+
 	return nil
 }

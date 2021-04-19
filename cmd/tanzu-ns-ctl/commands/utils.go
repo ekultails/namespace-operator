@@ -49,6 +49,7 @@ func Decode(r io.Reader, o interface{}) error {
 	if err != nil {
 		return err
 	}
+
 	return yaml.Unmarshal(btys, o)
 }
 
@@ -63,6 +64,7 @@ func Encode(w io.Writer, o interface{}) error {
 	if _, err := w.Write([]byte("---\n")); err != nil {
 		return err
 	}
+
 	if _, err := w.Write(btys); err != nil {
 		return err
 	}

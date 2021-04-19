@@ -30,9 +30,11 @@ type TanzuNamespaceReconciler struct {
 }
 
 func ignoreNotFound(err error) error {
+
 	if apierrs.IsNotFound(err) {
 		return nil
 	}
+
 	return err
 }
 
@@ -112,7 +114,9 @@ func (r *TanzuNamespaceReconciler) Reconcile(req ctrl.Request) (ctrl.Result, err
 				log.V(0).Info("unable to inject status field; retrying reconciliation")
 				return ctrl.Result{}, nil
 			}
+
 			log.Error(err, "unable to update custom resource status")
+
 			return ctrl.Result{}, err
 		}
 
@@ -120,6 +124,7 @@ func (r *TanzuNamespaceReconciler) Reconcile(req ctrl.Request) (ctrl.Result, err
 	} else {
 		log.V(0).Info("resources exist - no update logic implemented")
 	}
+
 	return ctrl.Result{}, nil
 }
 
