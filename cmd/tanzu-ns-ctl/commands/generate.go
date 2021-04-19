@@ -24,10 +24,11 @@ func NewGenerateCommand() *cobra.Command {
 		Use:   "generate <custom-input-manifest-file> <k8s-output-manifest-file>",
 		Short: "Generate kubernetes manifests from custom resource manifest",
 		Args: func(cmd *cobra.Command, args []string) error {
-			if len(args) < 1 {
+			const one, two int = 1, 2
+			if len(args) < one {
 				return errors.New("requires a custom-input-manifest-file argument")
 			}
-			if len(args) < 2 {
+			if len(args) < two {
 				return errors.New("requires a k8s-output-manifest-file argument")
 			}
 			return nil
